@@ -17,6 +17,11 @@ view: fact_time_entries {
     sql: ${TABLE}.budgeted ;;
   }
 
+  dimension: client_id {
+    type: number
+    sql: ${TABLE}.client_id ;;
+  }
+
   dimension: cost_rate {
     type: number
     sql: ${TABLE}.cost_rate ;;

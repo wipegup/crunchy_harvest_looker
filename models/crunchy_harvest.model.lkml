@@ -73,4 +73,11 @@ explore: time_entries {
     relationship: many_to_one
     sql_on: ${time_entries.project_id} = ${project.project_id} ;;
   }
+
+  join: client {
+    from:  dim_clients
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${time_entries.client_id} = ${client.client_id} ;;
+  }
 }
