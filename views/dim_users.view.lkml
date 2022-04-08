@@ -1,5 +1,5 @@
 view: dim_users {
-  sql_table_name: `analytics_analytics.dim_users`
+  sql_table_name: `team-2-crunchy.analytics_analytics.dim_users`
     ;;
 
   dimension: avatar_url {
@@ -32,9 +32,20 @@ view: dim_users {
     sql: ${TABLE}.can_see_rates ;;
   }
 
+  dimension: city {
+    type: string
+    sql: ${TABLE}.city ;;
+  }
+
   dimension: cost_rate {
     type: number
     sql: ${TABLE}.cost_rate ;;
+  }
+
+  dimension: country {
+    type: string
+    map_layer_name: countries
+    sql: ${TABLE}.country ;;
   }
 
   dimension_group: created {
@@ -126,6 +137,41 @@ view: dim_users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: phone {
+    type: string
+    sql: ${TABLE}.phone ;;
+  }
+
+  dimension_group: start {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.start_date ;;
+  }
+
+  dimension: state {
+    type: string
+    sql: ${TABLE}.state ;;
+  }
+
+  dimension: status {
+    type: string
+    sql: ${TABLE}.status ;;
+  }
+
+  dimension: team {
+    type: string
+    sql: ${TABLE}.team ;;
+  }
+
   dimension: telephone {
     type: string
     sql: ${TABLE}.telephone ;;
@@ -134,6 +180,11 @@ view: dim_users {
   dimension: timezone {
     type: string
     sql: ${TABLE}.timezone ;;
+  }
+
+  dimension: title {
+    type: string
+    sql: ${TABLE}.title ;;
   }
 
   dimension_group: updated {
@@ -159,6 +210,11 @@ view: dim_users {
   dimension: weekly_capacity {
     type: number
     sql: ${TABLE}.weekly_capacity ;;
+  }
+
+  dimension: zip_code {
+    type: zipcode
+    sql: ${TABLE}.zip_code ;;
   }
 
   measure: count {
